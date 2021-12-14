@@ -4,6 +4,7 @@
     <!--    Todo:content-->
     <div style="width: 100px;height: 100px;"></div>
     <div style="width: 100px;height: 100px;"></div>
+    <div style="width: 100px;height: 100px;"></div>
     <!--    底部-->
     <my-foot></my-foot>
 </template>
