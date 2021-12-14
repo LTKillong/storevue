@@ -1,33 +1,45 @@
 <template>
-    <div id="nav">
-        <router-link to="/">Home</router-link>
-        |
-        <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-    <el-button @click="click">
-        按钮
-    </el-button>
-    <el-input v-model="input" placeholder="Please input password" show-password />
+    <!--    头部-->
+    <my-head></my-head>
+<!--    Todo:content-->
+<div style="width: 100px;height: 100px;"></div>
+<!--    底部-->
+    <my-foot></my-foot>
 </template>
 <script>
+import MyHead from "@/components/MyHead";
+import MyFoot from "@/components/MyFoot";
+
 export default {
     data() {
-        return{
-            input:''
+        return {
+            input: ''
         }
     },
-    methods:{
-      click(){
-          console.log(this.input);
-      }
+
+    components: {
+        MyFoot,
+        MyHead,
     },
-    setup(){
+    methods: {
+        click() {
+            console.log(this.input);
+        }
+    },
+    setup() {
 
     }
 
 }
 </script>
 <style>
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
 
 </style>
