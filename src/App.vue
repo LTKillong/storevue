@@ -1,35 +1,26 @@
 <template>
     <!--    头部-->
     <my-head></my-head>
-    <!--    Todo:content-->
-    <div style="width: 100px;height: 100px;"></div>
-
+    <!--    主要区域-->
+    <Content></Content>
     <!--    底部-->
     <my-foot></my-foot>
 </template>
 <script>
 import MyHead from "@/components/MyHead";
 import MyFoot from "@/components/MyFoot";
+import Content from "@/components/Content";
+
 
 export default {
-    data() {
-        return {
-            input: ''
-        }
-    },
-
     components: {
+        Content,
         MyFoot,
         MyHead,
     },
-    methods: {
-        click() {
-            console.log(this.input);
-        }
-    },
     setup() {
 
-    }
+    },
 
 }
 </script>

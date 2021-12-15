@@ -1,27 +1,49 @@
 <template>
     <div class="head">
-        <img :src="require('../assets/lufi.png')" class="my-img" alt="" draggable="false" oncontextmenu="false">
+        <img :src="require('../assets/lufi.png')" alt="" class="my-img" draggable="false">
         <ul class="nav-list">
-            <li @click="login">登录</li>
-            <li @click="register">注册</li>
-            <li @click="about">关于</li>
+            <li @click="login()">登录</li>
+            <li @click="register()">注册</li>
+            <li @click="about()">关于</li>
         </ul>
     </div>
+
+
+    <router-view>
+
+    </router-view>
+
 </template>
 
 <script>
+import {useRouter} from "vue-router";
+
 export default {
     name: "MyHead",
 
     setup() {
+        const router = useRouter();
+
+
         const login = () => {
-            console.log('login')
+            router.push({
+                path: '/login',
+                query: {}
+            })
         };
         const register = () => {
-            console.log('register')
+            router.push({
+                path: "/register",
+                query: {
+                    title: '这是title'
+                }
+            })
         };
         const about = () => {
-            console.log('about')
+            router.push({
+                path: '/about',
+                query: {}
+            })
         };
 
         return {
