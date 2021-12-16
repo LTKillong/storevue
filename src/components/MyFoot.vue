@@ -14,8 +14,8 @@ export default {
 <style scoped>
 .foot{
     height: 100px;
-    background-color: #d7d7d7;
-    color: #000;
+    background-color: #c0c4cc;
+    color: #fff;
 }
 
 p{

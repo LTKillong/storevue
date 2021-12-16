@@ -2,54 +2,43 @@
     <div class="head">
         <img :src="require('../assets/lufi.png')" alt="" class="my-img" draggable="false">
         <ul class="nav-list">
-            <li @click="login()">登录</li>
-            <li @click="register()">注册</li>
-            <li @click="about()">关于</li>
+            <li @click="showDialog('isShowLogin')">登录</li>
+            <li @click="showDialog('isShowRegister')">注册</li>
+            <li @click="showDialog('isShowAbout')">关于</li>
         </ul>
     </div>
 
-
-    <router-view>
-
-    </router-view>
-
+    <Login v-model="isShowLogin" title="用户登录"></Login>
+    <register v-model="isShowRegister" title="注册"></register>
+    <About v-model="isShowAbout" title="关于"></About>
 </template>
 
 <script>
-import {useRouter} from "vue-router";
+
+import Login from "@/components/Head/Login";
+import {ref} from "vue";
+import Register from "@/components/Head/Register";
+import About from "@/components/Head/About";
 
 export default {
     name: "MyHead",
-
+    components: {About, Register, Login},
     setup() {
-        const router = useRouter();
+        //声明打开或关闭对话框
+        const isShowLogin = ref(false);
+        const isShowRegister = ref(false);
+        const isShowAbout = ref(false);
 
-
-        const login = () => {
-            router.push({
-                path: '/login',
-                query: {}
-            })
-        };
-        const register = () => {
-            router.push({
-                path: "/register",
-                query: {
-                    title: '这是title'
-                }
-            })
-        };
-        const about = () => {
-            router.push({
-                path: '/about',
-                query: {}
-            })
+        const showDialog = (params) => {
+            console.log('showDialog:', params)
+            eval(params).value = true;
         };
 
         return {
-            login,
-            register,
-            about
+            isShowLogin,
+            isShowRegister,
+            isShowAbout,
+            showDialog
         }
 
     }
@@ -80,6 +69,10 @@ export default {
     content: "";
     display: block;
     clear: both;
+}
+
+li {
+    cursor: pointer;
 }
 
 li:not(li:last-child):after {
