@@ -1,10 +1,15 @@
 import {createRouter, createWebHistory} from 'vue-router'
-import Home from '../views/Home.vue'
+import ItemList from "@/views/ItemList";
 const routes = [
     {
-        path: '/',
-        name: 'Home',
-        component: Home,
+        path: '/items',
+        name: 'Items',
+        component: ItemList,
+        props($route){
+            return{
+                formData:$route.params.formData[0]
+            }
+        }
     }
 ]
 
