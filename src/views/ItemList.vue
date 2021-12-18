@@ -1,24 +1,26 @@
 <template>
+<!--    <div>{{id}}</div>-->
     <ul>
-        <li v-for="(item,index) in formData" :key="index">{{item}}</li>
+        <li v-for="(item) in $route.params.smart" :key="item.id">{{ item }}</li>
     </ul>
 </template>
 
 <script>
-// import {useRoute} from "vue-router";
+ //import {useRoute} from "vue-router";
 
 export default {
     name: "ItemList",
-    props:{
-        formData:Object
-    },
+
     // setup(){
     //     const route =useRoute();
-    //     console.log(route.query.formData);
+    //     console.log(route);
     //     return {
     //         route
     //     }
     // }
+    mounted() {
+        console.log(this.$route.params.smart)
+    }
 }
 </script>
 

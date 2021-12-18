@@ -5,11 +5,12 @@ const routes = [
         path: '/items',
         name: 'Items',
         component: ItemList,
-        props($route){
-            return{
-                formData:$route.params.formData[0]
-            }
-        }
+        // props($route){
+        //     console.log(typeof $route.params.smart[0]);
+        //     return{
+        //
+        //     }
+        // }
     }
 ]
 
