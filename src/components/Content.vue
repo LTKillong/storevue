@@ -9,7 +9,7 @@
                     <ul>
                         <li @click="clickRoute('smart')">穿戴智能设备 <span class="hot">HOT</span></li>
                         <li @click="clickRoute('work')">电脑办公设备</li>
-                        <li>家用日常设备</li>
+                        <li @click="clickRoute('home')">家用日常设备</li>
                         <li>打印设备 <span class="hot">HOT</span></li>
                     </ul>
                 </div>
@@ -55,63 +55,20 @@ import {useRouter} from "vue-router";
 export default {
     name: "Content",
     setup() {
-
-        const smart = `[
-            {
-                "id": "1",
-                "name": "智能手表1",
-                "desc": "智能手表描述1",
-                "imgUrl": "../assets/images/yangmi.jpg"
-            },
-            {
-                "id": "2",
-                "name": "智能手表2",
-                "desc": "智能手表描述2",
-                "imgUrl": "../assets/images/yangmi.jpg"
-            },
-            {
-                "id": "3",
-                "name": "智能手表3",
-                "desc": "智能手表描述3",
-                "imgUrl": "../assets/images/yangmi.jpg"
-            },
-            {
-                "id": "4",
-                "name": "智能手表4",
-                "desc": "智能手表描述4",
-                "imgUrl": "../assets/images/yangmi.jpg"
-            }]`
-
-        const work = {
-            0: {
-                id: 11, name: '智能手表11', desc: '智能手表是描述11', imgUrl: '../assets/images/yangmi.jpg',
-            },
-            1: {
-                id: 12, name: '智能手表12', desc: '智能手表是描述12', imgUrl: '../assets/images/yangmi.jpg',
-            },
-            2: {
-                id: 13, name: '智能手表13', desc: '智能手表是描述13', imgUrl: '../assets/images/yangmi.jpg',
-            },
-            3: {
-                id: 14, name: '智能手表14', desc: '智能手表是描述14', imgUrl: '../assets/images/yangmi.jpg',
-            }
-        }
-
-
         const router = useRouter();
-        const clickRoute = () => {
+        const clickRoute = (itemType) => {
+
             router.push({
                 name: 'Items',
                 params: {
-                    smart
+                    itemType:itemType
                 }
             })
+
         }
 
         return {
-            clickRoute,
-            smart,
-            work
+            clickRoute
         }
     }
 }
