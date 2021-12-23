@@ -17,7 +17,8 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="less">
+
 .item-wrapper{
     display: flex;
     flex-direction: row;
@@ -29,11 +30,15 @@ export default {
 }
 .left{
     margin: auto 0 auto 0;
+    img{
+        width: 100px;
+        height: 80px;
+    }
 }
-.left img{
-    width: 100px;
-    height: 80px;
-}
+//.left img{
+//    width: 100px;
+//    height: 80px;
+//}
 .right{
     margin:auto 0 auto 0;
 }
